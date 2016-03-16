@@ -1,5 +1,5 @@
 // angular
-import {Component} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from 'angular2/core';
 
 // libs
 import {TranslatePipe} from 'ng2-translate/ng2-translate';
@@ -58,6 +58,9 @@ export class DecoratorUtils {
     
     if (config.changeDetection) {
       config.changeDetection = config.changeDetection;
+    } else {
+      // default OnPush
+      config.changeDetection = ChangeDetectionStrategy.OnPush;
     }
     
     if (config.encapsulation) {
